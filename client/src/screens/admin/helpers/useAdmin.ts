@@ -48,7 +48,7 @@ export const useAdmin = () => {
 
   const { isLoading: isLoadingAdmins } = useQuery<IAdminsData>(
     ["get_all_admins"],
-    () => AdminService.getAllMentors(),
+    () => AdminService.getAllAdmins(),
     {
       onSuccess: (data) => {
         setAdmins(data.admins);

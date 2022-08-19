@@ -12,7 +12,6 @@ interface IProps {
 const AssignMentorModal = ({ isOpen, onClose, id }: IProps) => {
   const {
     errors,
-    fields,
     mentors,
     isLoading,
     isDisabled,
@@ -51,7 +50,7 @@ const AssignMentorModal = ({ isOpen, onClose, id }: IProps) => {
         />
 
         <Button isLoading={isLoading} disabled={isDisabled} type="submit">
-          Schedule Metting
+          Assign Mentor
         </Button>
       </ModalFormWrapper>
     </Modal>

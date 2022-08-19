@@ -6,7 +6,7 @@ interface ButtonProps {
   children: React.ReactNode;
   disabled?: boolean;
   isLoading?: boolean;
-  onClick?: () => void;
+  onClick?: (e?: any) => void;
   type?: "submit" | "button";
 }
 

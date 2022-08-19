@@ -36,7 +36,7 @@ const LoginScreen = () => {
         />
         <Input
           placeholder="Password"
-          type="password"
+          type={show ? "text" : "password"}
           label="Password"
           error={errors.password}
           name="password"

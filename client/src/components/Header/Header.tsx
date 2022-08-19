@@ -89,7 +89,7 @@ const Header = ({ show, handleShow }: IHeaderProps) => {
             {isLoggedIn ? (
               <>
                 <StyledNavigationLink
-                  to={user.type !== "user" ? "/admin/dashboard" : "/me"}
+                  to={user.type !== "intern" ? "/admin/dashboard" : "/me"}
                   onClick={() => handleShow(false)}
                   className="btn"
                 >

@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import {
   AdiminDashboardScreen,
+  CurriculumsScreen,
   Dashboard,
   HomeScreen,
   InternsScreen,
@@ -33,6 +34,7 @@ const AppRouter = () => {
           <Route path="dashboard" element={<AdiminDashboardScreen />} />
           <Route path="mentors" element={<MentorsScreen />} />
           <Route path="interns" element={<InternsScreen />} />
+          <Route path="curriculums" element={<CurriculumsScreen />} />
           <Route
             path="*"
             element={<p style={{ marginTop: "10rem" }}>Screen not found</p>}

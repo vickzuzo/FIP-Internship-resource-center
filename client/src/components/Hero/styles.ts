@@ -2,7 +2,7 @@ import { devices } from "./../../styles/Sizes";
 import styled from "styled-components";
 
 export const StyledHeroSectionContainer = styled.section`
-  height: 85vh;
+  height: 95vh;
   background-color: #fff;
   width: 100%;
   transform: skew(0, -4.76deg) translateY(calc(50vw / -12));
@@ -13,13 +13,16 @@ export const StyledHeroSectionContainer = styled.section`
     transform: skew(0, 4.76deg) translateY(calc(50vw / 12));
     margin-top: calc(50vw / -12);
   }
+
+  @media ${devices.tablet} {
+    min-height: 100vh;
+  }
 `;
 export const StyledHeroMiddle = styled.div`
   width: 85%;
   margin: 0 auto;
   display: flex;
   align-items: center;
-  justify-content: space-between;
 
   @media ${devices.tablet} {
     flex-direction: column;
@@ -42,9 +45,9 @@ export const StyledLeftContainer = styled.div`
   }
   @media ${devices.tablet} {
     width: 80%;
-    margin-bottom: 4rem;
+    margin-top: 10rem;
     h1 {
-      font-size: 2rem;
+      font-size: 1.8rem;
     }
   }
 `;
@@ -59,6 +62,7 @@ export const StyledRightContainer = styled.div`
   @media ${devices.tablet} {
     justify-content: center;
     width: 80%;
+    height: auto;
   }
 `;
 
@@ -67,6 +71,10 @@ export const StyledButtonContainer = styled.div`
   margin: 2rem 0px;
   button {
     padding: 1rem 2rem;
+  }
+
+  @media ${devices.tablet} {
+    width: 60%;
   }
 `;
 

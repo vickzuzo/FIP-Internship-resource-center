@@ -12,7 +12,7 @@ interface IProps {
 const EditUserModal = ({ isOpen, onClose, id }: IProps) => {
   const {
     errors,
-    fields,
+    // fields,
     isLoading,
     isDisabled,
     handleFieldChange,

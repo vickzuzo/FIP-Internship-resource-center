@@ -30,12 +30,6 @@ exports.scheduleMeeting = async (req, res) => {
       text: `${user.fullName} has requested a meeting with you on ${date} at ${time}`,
     });
 
-    await sendMail({
-      to: user.email,
-      subject: "Meeting Scheduled",
-      text: `Your meeting with ${mentor.fullName} has been scheduled on ${date} at ${time}, Awaiting confirmation from the mentor. You will be notified as soon as the mentor confirms your meeting.`,
-    });
-
     return res.status(200).send({ message: "success", scheduledMeeting });
   } catch (error) {
     return res.status(500).send(error);
@@ -64,6 +58,7 @@ exports.getUserCurriculum = async (req, res) => {
 
     const curriculums = await Curriculum.find({
       learningPath: user.learningPath,
+      learningLevel: user.learningLevel,
     });
 
     if (!user) {
@@ -76,7 +71,6 @@ exports.getUserCurriculum = async (req, res) => {
     return res.status(500).send(error);
   }
 };
-
 
 exports.getUserChallenges = async (req, res) => {
   const userId = req.user._id;
@@ -97,4 +91,4 @@ exports.getUserChallenges = async (req, res) => {
   } catch (error) {
     return res.status(500).send(error);
   }
-}
+};

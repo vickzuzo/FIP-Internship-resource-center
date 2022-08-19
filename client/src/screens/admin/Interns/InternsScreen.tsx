@@ -21,13 +21,13 @@ const InternsScreen = () => {
       <Table
         data={interns}
         withDelete
+        isIntern
         withMain
         onMainClick={(id: string) => {
           handleSelectIntern(id);
           onOpen();
         }}
         onDeleteClick={(id?: string) => console.log("delete", id)}
-
       />
       <AssignMentorModal
         isOpen={isOpen}

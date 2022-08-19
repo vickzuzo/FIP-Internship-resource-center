@@ -11,7 +11,7 @@ interface IProps {
 
 const ScheduleMeetingModal = ({ isOpen, onClose, mentorId }: IProps) => {
   const { onSubmit, isLoading, isDisabled, fields, handleFieldChange, errors } =
-    useMeeting(mentorId);
+    useMeeting(mentorId, onClose);
 
   return (
     <Modal isOpen={isOpen} onClose={onClose}>

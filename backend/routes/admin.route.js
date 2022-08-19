@@ -11,6 +11,8 @@ const {
   assignMentor,
   editUser,
   addNewMentor,
+  getAllCurriculums,
+  getAllNoLevelUsers,
 } = require("../controllers/admin.controller");
 const requireAdmin = require("../middlewares/requireAdmin");
 const requireAuth = require("../middlewares/requireAuth");
@@ -22,6 +24,8 @@ adminRouter.use(requireAuth);
 adminRouter.route("/get_all_users").get(getAllUsers);
 adminRouter.route("/get_all_mentors").get(getAllMentors);
 adminRouter.route("/get_all_admins").get(getAllAdmins);
+adminRouter.route("/get_all_no_level_users").get(getAllNoLevelUsers);
+adminRouter.route("/get_all_curriculums").get(getAllCurriculums);
 adminRouter.route("/assign_mentor").post(assignMentor);
 adminRouter.route("/add_new_mentor").post(addNewMentor);
 // adminRouter.route("/edit_user").post(editUser);

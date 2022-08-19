@@ -3,6 +3,7 @@ export interface Curriculum {
   title: string;
   description: string;
   learningPath: string;
+  learningLevel: string;
   topics: Array<string>;
   duration: string;
   type: string;

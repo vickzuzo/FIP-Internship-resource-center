@@ -5,7 +5,7 @@ import { UserService } from "../../../../network/services";
 import { validators } from "./../../../../utils/validator";
 import moment from "moment";
 
-export const useMeeting = (mentorId: string) => {
+export const useMeeting = (mentorId: string, onClose: () => void) => {
   const initialData = {
     date: "",
     time: "",
@@ -30,12 +30,10 @@ export const useMeeting = (mentorId: string) => {
 
   const input = {
     date: moment(date).format("DD of MMMM YYYY"),
-    time: moment(time).format("HH:mm aa"),
+    time,
     mentorId,
     userId,
   };
-
-  console.log(input);
 
   // const { data, isLoading } = useQuery(
   //   ["schedule_meeting", { userId, mentorId }],
@@ -49,6 +47,7 @@ export const useMeeting = (mentorId: string) => {
           position: "top-right",
           // duration: 5000,
         });
+        onClose();
       },
       onError: (err: any) => {
         toast.error(err.response.data, {

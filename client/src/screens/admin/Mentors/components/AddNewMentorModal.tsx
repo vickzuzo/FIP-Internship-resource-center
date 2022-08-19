@@ -32,7 +32,7 @@ const AddNewMentorModal = ({ isOpen, onClose }: IProps) => {
         />
         <Select
           placeholder="select a role"
-          label="Select user"
+          label="Select role"
           name="role"
           options={[
             { label: "admin", value: "admin" },

@@ -29,6 +29,7 @@ import { MdLogout, MdOutlineAnalytics } from "react-icons/md";
 import { Outlet, useLocation } from "react-router-dom";
 import { logo } from "../../assets/icons";
 import { useGetCurrentUser } from "../../network";
+import { useSidebar } from "./useSidebar";
 
 const Sidebar = () => {
   const searchRef = useRef<HTMLInputElement>(null);
@@ -51,6 +52,8 @@ const Sidebar = () => {
     }
   };
 
+  const { interns } = useSidebar();
+
   const linksArray = [
     {
       label: "Home",
@@ -62,7 +65,7 @@ const Sidebar = () => {
       label: "Interns",
       icon: <MdOutlineAnalytics />,
       to: "/admin/interns",
-      notification: 3,
+      notification: interns.length,
     },
     {
       label: "Mentors",
@@ -74,7 +77,7 @@ const Sidebar = () => {
       label: "Curriculum",
       icon: <AiOutlineApartment />,
       to: "/admin/curriculums",
-      notification: 1,
+      notification: 0,
     },
   ];
 

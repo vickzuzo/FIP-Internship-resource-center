@@ -35,6 +35,11 @@ export const validators: ValidationType = {
       return "Learning path is required";
     }
   },
+  learningLevel: (laerningLevel: string) => {
+    if (laerningLevel === "") {
+      return "Learning Level is required";
+    }
+  },
   code: (code: string) => {
     if (code === "") {
       return "Code is required";
@@ -48,6 +53,11 @@ export const validators: ValidationType = {
   time: (time: string) => {
     if (time === "") {
       return "Time is required";
+    }
+  },
+  topic: (topic: string) => {
+    if (topic === "") {
+      return "Topic is required";
     }
   },
   mentorId: (mentorId: string) => {
@@ -69,6 +79,32 @@ export const validators: ValidationType = {
     if (role === "") {
       return "Role is required";
     }
+  },
+  title: (title: string) => {
+    if (title === "") {
+      return "Title is required";
+    }
+  },
+  description: (description: string) => {
+    if (description === "") {
+      return "Description is required";
+    }
+  },
+  topics: (topics: string) => {
+    return "";
+  },
+  duration: (duration: string) => {
+    if (duration === "") {
+      return "Duration is required";
+    }
+  },
+  type: (type: string) => {
+    if (type === "") {
+      return "Type is required";
+    }
+  },
+  externalLinks: (externalLinks: string) => {
+    return "";
   },
 };
 

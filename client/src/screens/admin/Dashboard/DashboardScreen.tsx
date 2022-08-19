@@ -42,11 +42,11 @@ const DashboardScreen = () => {
       ) : (
         <>
           <AdminSubSectionHeader title="Interns" />
-          <Table data={interns} />
+          <Table data={interns} isIntern />
           <AdminSubSectionHeader title="Mentors" />
           <Table data={mentors} />
           <AdminSubSectionHeader title="Admins" />
-          <Table data={interns} />
+          <Table data={admins} />
         </>
       )}
     </StyledDashboardCardFlex>

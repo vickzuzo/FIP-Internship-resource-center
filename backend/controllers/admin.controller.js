@@ -5,7 +5,16 @@ const Challenge = mongoose.model("Challenge");
 
 exports.getAllUsers = async (req, res) => {
   try {
-    const interns = await User.find({ type: "intern" });
+    const interns = await User.find({ type: "intern" }).populate("mentors");
+    return res.status(200).send({ interns });
+  } catch (error) {
+    return res.status(500).send(error);
+  }
+};
+
+exports.getAllNoLevelUsers = async (req, res) => {
+  try {
+    const interns = await User.find({ type: "intern", learningLevel: "" });
     return res.status(200).send({ interns });
   } catch (error) {
     return res.status(500).send(error);
@@ -30,6 +39,15 @@ exports.getAllAdmins = async (req, res) => {
   }
 };
 
+exports.getAllCurriculums = async (req, res) => {
+  try {
+    const curriculums = await Curriculum.find();
+    return res.status(200).send({ curriculums });
+  } catch (error) {
+    return res.status(500).send(error);
+  }
+};
+
 exports.assignMentor = async (req, res) => {
   const { internId, mentorId, learningLevel } = req.body;
   try {
@@ -37,6 +55,9 @@ exports.assignMentor = async (req, res) => {
     const mentor = await User.findById(mentorId);
     if (!user || !mentor) {
       return res.status(400).send("User or mentor not found");
+    }
+    if (user.mentors.includes(mentorId)) {
+      return res.status(400).send("Mentor already assigned");
     }
     await User.findByIdAndUpdate(
       internId,
@@ -97,6 +118,7 @@ exports.createCurriculum = async (req, res) => {
     duration,
     type,
     externalLinks,
+    learningLevel,
   } = req.body;
   try {
     const curriculum = Curriculum.create({
@@ -107,6 +129,7 @@ exports.createCurriculum = async (req, res) => {
       duration,
       type,
       externalLinks,
+      learningLevel,
     });
     return res
       .status(200)
